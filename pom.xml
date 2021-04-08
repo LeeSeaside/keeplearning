@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.lee</groupId>
+    <groupId>com.lee</groupId>
     <artifactId>keeplearning</artifactId>
     <version>1.0.0</version>
     <!-- 将当前项目定义为pom. -->
@@ -27,6 +27,10 @@
     <!-- 项目中依赖版本统一管理. -->
     <properties>
         <springboot.version>2.4.1</springboot.version>
+        <mysql.version>8.0.16</mysql.version>
+        <lombok.version>1.18.12</lombok.version>
+        <satoken.version>1.15.0.RELEASE</satoken.version>
+        <hutool.version>5.6.2</hutool.version>
     </properties>
 
     <!-- 项目中依赖版本统一管理. -->
@@ -46,6 +50,46 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter</artifactId>
                 <version>${springboot.version}</version>
+            </dependency>
+            <!-- spring-data-jpa-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-jpa</artifactId>
+                <version>${springboot.version}</version>
+            </dependency>
+            <!-- AOP -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-aop</artifactId>
+                <version>${springboot.version}</version>
+            </dependency>
+
+            <!-- mysql 数据库-->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+
+            <!-- lombok插件-->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+
+            <!-- sa-token 权限认证, 在线文档：http://sa-token.dev33.cn/ -->
+            <dependency>
+                <groupId>cn.dev33</groupId>
+                <artifactId>sa-token-spring-boot-starter</artifactId>
+                <version>${satoken.version}</version>
+            </dependency>
+
+            <!-- Hutool是一个小而全的Java工具类库-->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
