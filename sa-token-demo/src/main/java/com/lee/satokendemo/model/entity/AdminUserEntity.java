@@ -31,11 +31,11 @@ public class AdminUserEntity {
     */
     @Column(name = "au_password")
     private String password;
-    /**
-    * 角色
-    */
-    @Column(name = "au_role")
-    private Integer role;
+//    /**
+//    * 角色
+//    */
+//    @Column(name = "au_role")
+//    private Integer role;
     /**
     * 创建时间
     */

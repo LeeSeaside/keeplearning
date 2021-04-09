@@ -36,4 +36,19 @@ public class TestController {
         StpUtil.getTokenInfo();
         return "首页";
     }
+
+    @PostMapping("/createUser")
+    public String createUser() {
+        AdminUserEntity userEntity = new AdminUserEntity()
+                .setUsername("xiaohai")
+                .setPassword("123");
+        adminUserMapper.save(userEntity);
+        return "ok";
+    }
+
+    @PostMapping("/find")
+    public String find() {
+        AdminUserEntity userEntity = adminUserMapper.findById(1).orElse(null);
+        return "ok";
+    }
 }
