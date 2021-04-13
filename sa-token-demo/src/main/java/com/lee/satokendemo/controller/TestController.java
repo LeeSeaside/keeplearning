@@ -1,11 +1,12 @@
 package com.lee.satokendemo.controller;
 
 import cn.dev33.satoken.stp.StpUtil;
+import cn.hutool.core.lang.Console;
 import com.lee.satokendemo.mapper.AdminUserMapper;
 import com.lee.satokendemo.model.entity.AdminUserEntity;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
+import javax.annotation.Resource;
 import java.util.Optional;
 
 /**
@@ -14,12 +15,12 @@ import java.util.Optional;
 @RestController
 public class TestController {
 
-    @Autowired
+    @Resource
     private AdminUserMapper adminUserMapper;
 
     @PostMapping("/login")
-    public String login() {
-        AdminUserEntity user = adminUserMapper.findById(1).orElse(null);
+    public String login(Integer id) {
+        AdminUserEntity user = adminUserMapper.findById(id).orElse(null);
         if (!Optional.ofNullable(user).isPresent()) {
             return "fail";
         }
@@ -30,10 +31,8 @@ public class TestController {
 
     @PostMapping("/home")
     public String home() {
-        if (!StpUtil.isLogin()) {
-            return "请登录";
-        }
         StpUtil.getTokenInfo();
+        StpUtil.getSession();
         return "首页";
     }
 
@@ -49,6 +48,23 @@ public class TestController {
     @PostMapping("/find")
     public String find() {
         AdminUserEntity userEntity = adminUserMapper.findById(1).orElse(null);
+        return "ok";
+    }
+
+    @PostMapping("/show")
+    public String show() {
+        // 显示当前用户的权限和角色
+//        StpUtil.checkRole("管理员");
+        StpUtil.checkPermission("咨询");
+        Console.log(StpUtil.hasRole("管理员"));
+        Console.log(StpUtil.hasPermission("咨询"));
+        return "ok";
+    }
+
+    @PostMapping("/logout")
+    public String logout() {
+        // 踢人下线
+        StpUtil.logoutByLoginId(1);
         return "ok";
     }
 }

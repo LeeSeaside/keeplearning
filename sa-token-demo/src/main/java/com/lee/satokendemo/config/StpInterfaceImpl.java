@@ -1,8 +1,10 @@
 package com.lee.satokendemo.config;
 
 import cn.dev33.satoken.stp.StpInterface;
+import com.lee.satokendemo.service.MenuService;
+import com.lee.satokendemo.service.RoleService;
 import org.springframework.stereotype.Component;
-import java.util.ArrayList;
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -12,20 +14,19 @@ import java.util.List;
 @Component    // 保证此类被SpringBoot扫描，完成sa-token的自定义权限验证扩展
 public class StpInterfaceImpl implements StpInterface {
 
+    @Resource
+    private MenuService menuService;
+
+    @Resource
+    private RoleService roleService;
+
     /**
      * 返回一个账号所拥有的权限码集合
      */
     @Override
     public List<String> getPermissionList(Object loginId, String loginKey) {
         // 本list仅做模拟，实际项目中要根据具体业务逻辑来查询权限
-        List<String> list = new ArrayList<String>();
-        list.add("101");
-        list.add("user-add");
-        list.add("user-delete");
-        list.add("user-update");
-        list.add("user-get");
-        list.add("article-get");
-        return list;
+        return menuService.getMenuList(Integer.valueOf(loginId.toString()));
     }
 
     /**
@@ -34,10 +35,7 @@ public class StpInterfaceImpl implements StpInterface {
     @Override
     public List<String> getRoleList(Object loginId, String loginKey) {
         // 本list仅做模拟，实际项目中要根据具体业务逻辑来查询角色
-        List<String> list = new ArrayList<String>();
-        list.add("admin");
-        list.add("super-admin");
-        return list;
+        return roleService.getRoleList(Integer.valueOf(loginId.toString()));
     }
 
 }

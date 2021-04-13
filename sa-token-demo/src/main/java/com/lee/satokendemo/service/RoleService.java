@@ -1,6 +1,5 @@
 package com.lee.satokendemo.service;
 
-import com.lee.satokendemo.model.entity.Role;
 import java.util.List;
 
 /**
@@ -11,4 +10,5 @@ import java.util.List;
  */
 public interface RoleService {
 
+    List<String> getRoleList(Integer id);
 }

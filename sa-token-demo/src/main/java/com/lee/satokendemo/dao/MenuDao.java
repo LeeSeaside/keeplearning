@@ -1,7 +1,9 @@
 package com.lee.satokendemo.dao;
 
 import com.lee.satokendemo.model.entity.Menu;
-import org.springframework.data.repository.query.Param;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
@@ -10,56 +12,14 @@ import java.util.List;
  * @author makejava
  * @since 2021-04-09 16:56:53
  */
-public interface MenuDao {
+@Repository
+public interface MenuDao extends JpaRepository<Menu, Integer> {
 
-    /**
-     * 通过ID查询单条数据
-     *
-     * @param id 主键
-     * @return 实例对象
-     */
-    Menu queryById(Integer id);
-
-    /**
-     * 查询指定行数据
-     *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
-     * @return 对象列表
-     */
-    List<Menu> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit);
-
-
-    /**
-     * 通过实体作为筛选条件查询
-     *
-     * @param menu 实例对象
-     * @return 对象列表
-     */
-    List<Menu> queryAll(Menu menu);
-
-    /**
-     * 新增数据
-     *
-     * @param menu 实例对象
-     * @return 影响行数
-     */
-    int insert(Menu menu);
-
-    /**
-     * 修改数据
-     *
-     * @param menu 实例对象
-     * @return 影响行数
-     */
-    int update(Menu menu);
-
-    /**
-     * 通过主键删除数据
-     *
-     * @param id 主键
-     * @return 影响行数
-     */
-    int deleteById(Integer id);
-
+    @Query(value = "select distinct m.menu_name from admin_user u, user_role ur, role_menu rm, role r, menu m " +
+            "            where 1 = ur.user_id " +
+            "            and ur.role_id = r.id " +
+            "            and r.id = rm.role_id " +
+            "            and rm.menu_id = m.id",
+            nativeQuery = true)
+    List<String> getMenuList(Integer id);
 }
