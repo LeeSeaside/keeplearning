@@ -1,10 +1,12 @@
 package com.lee.satokendemo.controller;
 
+import cn.dev33.satoken.annotation.SaCheckLogin;
 import cn.dev33.satoken.stp.StpUtil;
 import cn.hutool.core.lang.Console;
 import com.lee.satokendemo.mapper.AdminUserMapper;
 import com.lee.satokendemo.model.entity.AdminUserEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 import java.util.Optional;
@@ -13,7 +15,8 @@ import java.util.Optional;
  * Created by hehai on 2021/4/7
  */
 @RestController
-public class TestController {
+@RequestMapping("/login")
+public class LoginController {
 
     @Resource
     private AdminUserMapper adminUserMapper;
@@ -29,10 +32,11 @@ public class TestController {
         return "ok";
     }
 
+    @SaCheckLogin
     @PostMapping("/home")
     public String home() {
-        StpUtil.getTokenInfo();
-        StpUtil.getSession();
+//        StpUtil.getTokenInfo();
+//        StpUtil.getSession();
         return "首页";
     }
 

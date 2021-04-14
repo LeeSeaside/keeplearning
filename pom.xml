@@ -29,8 +29,9 @@
         <springboot.version>2.4.1</springboot.version>
         <mysql.version>8.0.16</mysql.version>
         <lombok.version>1.18.12</lombok.version>
-        <satoken.version>1.15.0.RELEASE</satoken.version>
+        <satoken.version>1.16.0</satoken.version>
         <hutool.version>5.6.2</hutool.version>
+        <pool2.version>2.9.0</pool2.version>
     </properties>
 
     <!-- 项目中依赖版本统一管理. -->
@@ -71,6 +72,19 @@
                 <version>${mysql.version}</version>
             </dependency>
 
+            <!-- Redis 数据库-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-redis</artifactId>
+                <version>${springboot.version}</version>
+            </dependency>
+            <!-- Redis 实例化 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-pool2</artifactId>
+                <version>${pool2.version}</version>
+            </dependency>
+
             <!-- lombok插件-->
             <dependency>
                 <groupId>org.projectlombok</groupId>
@@ -82,6 +96,18 @@
             <dependency>
                 <groupId>cn.dev33</groupId>
                 <artifactId>sa-token-spring-boot-starter</artifactId>
+                <version>${satoken.version}</version>
+            </dependency>
+            <!-- sa-token整合redis (使用jackson序列化方式) -->
+            <dependency>
+                <groupId>cn.dev33</groupId>
+                <artifactId>sa-token-dao-redis-jackson</artifactId>
+                <version>${satoken.version}</version>
+            </dependency>
+            <!-- sa-token整合SpringAOP实现注解鉴权 -->
+            <dependency>
+                <groupId>cn.dev33</groupId>
+                <artifactId>sa-token-spring-aop</artifactId>
                 <version>${satoken.version}</version>
             </dependency>
 
