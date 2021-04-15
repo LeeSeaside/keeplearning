@@ -22,6 +22,7 @@
     <!--注册子项目 后面创建二级子项目后，需在父项目中注册-->
     <modules>
         <module>sa-token-demo</module>
+        <module>hasor-dataway-demo</module>
     </modules>
 
     <!-- 项目中依赖版本统一管理. -->
@@ -32,6 +33,7 @@
         <satoken.version>1.16.0</satoken.version>
         <hutool.version>5.6.2</hutool.version>
         <pool2.version>2.9.0</pool2.version>
+        <hasor.version>4.2.2</hasor.version>
     </properties>
 
     <!-- 项目中依赖版本统一管理. -->
@@ -62,6 +64,12 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-aop</artifactId>
+                <version>${springboot.version}</version>
+            </dependency>
+            <!-- JDBC -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-jdbc</artifactId>
                 <version>${springboot.version}</version>
             </dependency>
 
@@ -117,6 +125,19 @@
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool.version}</version>
             </dependency>
+
+            <!-- Hasor-Dataway 相关依赖 -->
+            <dependency>
+                <groupId>net.hasor</groupId>
+                <artifactId>hasor-spring</artifactId>
+                <version>${hasor.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.hasor</groupId>
+                <artifactId>hasor-dataway</artifactId>
+                <version>${hasor.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 

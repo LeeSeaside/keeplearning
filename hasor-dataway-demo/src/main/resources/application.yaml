@@ -1,0 +1,39 @@
+spring:
+  application:
+    # 应用名称
+    name: hasor-dataway-demo
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://47.116.142.202:3306/keeplearning?useUnicode=true&useSSL=false&autoReconnect=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: qwe!@#123
+
+# 修改端口号
+server:
+  port: 8101
+  servlet:
+    encoding:
+      # dataway 默认使用ISO-8859-1
+      charset: UTF-8
+      enabled: true
+      force: true
+
+# ===== dataway 配置 =====
+# 启用 Dataway 功能（默认不启用）
+HASOR_DATAQL_DATAWAY: true
+# 开启 ui 管理功能（注意生产环境必须要设置为 false，否则会造成严重的生产安全事故）
+HASOR_DATAQL_DATAWAY_ADMIN: true
+# （可选）API工作路径
+HASOR_DATAQL_DATAWAY_API_URL: /api/
+# （可选）ui 的工作路径，只有开启 ui 管理功能后才有效
+HASOR_DATAQL_DATAWAY_UI_URL: /ui/
+# SQL执行器方言设置（可选，建议设置）
+HASOR_DATAQL_FX_PAGE_DIALECT: mysql
+# 是否启用 Admin UI 的登陆认证
+HASOR_DATAQL_DATAWAY_AUTHORIZATION_ENABLE : false
+## 登陆认证方式在 basic 模式下的时候，配置的登陆账号
+#HASOR_DATAQL_DATAWAY_AUTHORIZATION_USERNAME: admin
+## 登陆认证方式在 basic 模式下的时候，配置的登陆密码
+#HASOR_DATAQL_DATAWAY_AUTHORIZATION_PASSWORD: admin
+## 登陆页面资源
+#HASOR_DATAQL_DATAWAY_AUTHORIZATION_LOGIN_PAGE: classpath:/META-INF/hasor-framework/dataway-ui/login.html
