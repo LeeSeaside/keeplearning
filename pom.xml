@@ -23,6 +23,7 @@
     <modules>
         <module>sa-token-demo</module>
         <module>hasor-dataway-demo</module>
+        <module>magic-api-demo</module>
     </modules>
 
     <!-- 项目中依赖版本统一管理. -->
@@ -34,6 +35,7 @@
         <hutool.version>5.6.2</hutool.version>
         <pool2.version>2.9.0</pool2.version>
         <hasor.version>4.2.2</hasor.version>
+        <magicapi.version>1.0.2</magicapi.version>
     </properties>
 
     <!-- 项目中依赖版本统一管理. -->
@@ -136,6 +138,13 @@
                 <groupId>net.hasor</groupId>
                 <artifactId>hasor-dataway</artifactId>
                 <version>${hasor.version}</version>
+            </dependency>
+
+            <!-- magic-api 依赖 -->
+            <dependency>
+                <groupId>org.ssssssss</groupId>
+                <artifactId>magic-api-spring-boot-starter</artifactId>
+                <version>${magicapi.version}</version>
             </dependency>
 
         </dependencies>

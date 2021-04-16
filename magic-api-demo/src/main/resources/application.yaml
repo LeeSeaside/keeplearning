@@ -1,0 +1,27 @@
+spring:
+  application:
+    # 应用名称
+    name: magic-api-demo
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://47.116.142.202:3306/keeplearning?useUnicode=true&useSSL=false&autoReconnect=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: qwe!@#123
+
+# 修改端口号
+server:
+  port: 8102
+
+# magic-api 配置
+magic-api:
+  #配置web页面入口
+  web: /magic/web
+  #配置文件存储位置
+  resource:
+    type: database # 配置存储在数据库中
+    tableName: magic_api # 数据库中的表名
+#    datasource: magic #指定数据源（单数据源时无需配置，多数据源时默认使用主数据源，如果存在其他数据源中需要指定。）
+    prefix: /magic-api # key前缀
+    readonly: false # 是否是只读模式
+    # 本地存储模式
+#    location: ./hasor-dataway-demo/data/magic-api
