@@ -24,6 +24,7 @@
         <module>sa-token-demo</module>
         <module>hasor-dataway-demo</module>
         <module>magic-api-demo</module>
+        <module>elasticsearch-demo</module>
     </modules>
 
     <!-- 项目中依赖版本统一管理. -->
@@ -36,6 +37,7 @@
         <pool2.version>2.9.0</pool2.version>
         <hasor.version>4.2.2</hasor.version>
         <magicapi.version>1.0.2</magicapi.version>
+        <elasticsearch.version>7.6.2</elasticsearch.version>
     </properties>
 
     <!-- 项目中依赖版本统一管理. -->
@@ -146,6 +148,33 @@
                 <artifactId>magic-api-spring-boot-starter</artifactId>
                 <version>${magicapi.version}</version>
             </dependency>
+
+            <!-- elasticsearch 依赖 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+                <version>${springboot.version}</version>
+            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>org.elasticsearch</groupId>-->
+<!--                <artifactId>elasticsearch</artifactId>-->
+<!--                <version>${elasticsearch.version}</version>-->
+<!--            </dependency>-->
+<!--            <dependency>-->
+<!--                <groupId>org.elasticsearch.plugin</groupId>-->
+<!--                <artifactId>transport-netty4-client</artifactId>-->
+<!--                <version>${elasticsearch.version}</version>-->
+<!--            </dependency>-->
+<!--            <dependency>-->
+<!--                <groupId>org.elasticsearch.client</groupId>-->
+<!--                <artifactId>elasticsearch-rest-high-level-client</artifactId>-->
+<!--                <version>${elasticsearch.version}</version>-->
+<!--            </dependency>-->
+<!--            <dependency>-->
+<!--                <groupId>org.elasticsearch.client</groupId>-->
+<!--                <artifactId>elasticsearch-rest-client</artifactId>-->
+<!--                <version>${elasticsearch.version}</version>-->
+<!--            </dependency>-->
 
         </dependencies>
     </dependencyManagement>

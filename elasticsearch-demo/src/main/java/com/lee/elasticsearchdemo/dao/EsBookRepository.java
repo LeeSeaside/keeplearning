@@ -1,0 +1,25 @@
+package com.lee.elasticsearchdemo.dao;
+
+import com.lee.elasticsearchdemo.model.Book;
+import org.springframework.data.elasticsearch.annotations.Highlight;
+import org.springframework.data.elasticsearch.annotations.HighlightField;
+import org.springframework.data.elasticsearch.annotations.Query;
+import org.springframework.data.elasticsearch.core.SearchHits;
+import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
+import java.util.List;
+
+/**
+ * Created by hehai on 2021/7/14
+ */
+public interface EsBookRepository extends ElasticsearchRepository<Book, String> {
+
+//    List<Book> findByTitleOrAuthor(String title, String author);
+//
+//    @Highlight(fields = {
+//            @HighlightField(name = "title"),
+//            @HighlightField(name = "author")
+//    })
+//    @Query("{\"match\":{\"title\":\"?0\"}}")
+//    SearchHits<Book> find(String keyword);
+
+}
