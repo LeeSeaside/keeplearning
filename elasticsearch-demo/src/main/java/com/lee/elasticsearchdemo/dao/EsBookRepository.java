@@ -13,13 +13,13 @@ import java.util.List;
  */
 public interface EsBookRepository extends ElasticsearchRepository<Book, String> {
 
-//    List<Book> findByTitleOrAuthor(String title, String author);
-//
-//    @Highlight(fields = {
-//            @HighlightField(name = "title"),
-//            @HighlightField(name = "author")
-//    })
-//    @Query("{\"match\":{\"title\":\"?0\"}}")
-//    SearchHits<Book> find(String keyword);
+    List<Book> findByTitleOrAuthor(String title, String author);
+
+    @Highlight(fields = {
+            @HighlightField(name = "title"),
+            @HighlightField(name = "author")
+    })
+    @Query("{\"match\":{\"title\":\"?0\"}}")
+    SearchHits<Book> find(String keyword);
 
 }

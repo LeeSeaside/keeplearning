@@ -17,9 +17,9 @@ public class Book {
     @Id
     @Field(type = FieldType.Text)
     private String id;
-    @Field(analyzer = "ik_max_word")
+    @Field(type = FieldType.Text)
     private String title;
-    @Field(analyzer = "ik_max_word")
+    @Field(type = FieldType.Text)
     private String author;
     @Field(type = FieldType.Double)
     private Double price;
