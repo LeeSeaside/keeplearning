@@ -38,6 +38,9 @@
         <hasor.version>4.2.2</hasor.version>
         <magicapi.version>1.0.2</magicapi.version>
         <elasticsearch.version>7.6.2</elasticsearch.version>
+        <fluent-mybatis.version>1.6.14</fluent-mybatis.version>
+        <mybatis.version>2.2.0</mybatis.version>
+        <junit.version>5.7.2</junit.version>
     </properties>
 
     <!-- 项目中依赖版本统一管理. -->
@@ -75,6 +78,12 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-jdbc</artifactId>
                 <version>${springboot.version}</version>
+            </dependency>
+            <!-- JUnit -->
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter</artifactId>
+                <version>${junit.version}</version>
             </dependency>
 
             <!-- mysql 数据库-->
@@ -175,6 +184,27 @@
 <!--                <artifactId>elasticsearch-rest-client</artifactId>-->
 <!--                <version>${elasticsearch.version}</version>-->
 <!--            </dependency>-->
+
+            <!-- 引入fluent-mybatis 运行依赖包, scope为compile -->
+            <dependency>
+                <groupId>com.github.atool</groupId>
+                <artifactId>fluent-mybatis</artifactId>
+                <version>${fluent-mybatis.version}</version>
+            </dependency>
+            <!-- 引入fluent-mybatis-processor, scope设置为provider 编译需要，运行时不需要 -->
+            <dependency>
+                <groupId>com.github.atool</groupId>
+                <artifactId>fluent-mybatis-processor</artifactId>
+                <scope>provided</scope>
+                <version>${fluent-mybatis.version}</version>
+            </dependency>
+
+            <!-- mybatis -->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>

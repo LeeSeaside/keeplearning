@@ -1,0 +1,13 @@
+spring:
+  application:
+    # 应用名称
+    name: fluent-mybatis-demo
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/shewu_app_test?useUnicode=true&useSSL=false&autoReconnect=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+
+# 修改端口号
+server:
+  port: 8200
