@@ -25,6 +25,7 @@
         <module>hasor-dataway-demo</module>
         <module>magic-api-demo</module>
         <module>elasticsearch-demo</module>
+        <module>fluent-mybatis-demo</module>
     </modules>
 
     <!-- 项目中依赖版本统一管理. -->
@@ -41,6 +42,7 @@
         <fluent-mybatis.version>1.6.14</fluent-mybatis.version>
         <mybatis.version>2.2.0</mybatis.version>
         <junit.version>5.7.2</junit.version>
+        <retrofit.version>2.2.16</retrofit.version>
     </properties>
 
     <!-- 项目中依赖版本统一管理. -->
@@ -164,26 +166,6 @@
                 <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
                 <version>${springboot.version}</version>
             </dependency>
-<!--            <dependency>-->
-<!--                <groupId>org.elasticsearch</groupId>-->
-<!--                <artifactId>elasticsearch</artifactId>-->
-<!--                <version>${elasticsearch.version}</version>-->
-<!--            </dependency>-->
-<!--            <dependency>-->
-<!--                <groupId>org.elasticsearch.plugin</groupId>-->
-<!--                <artifactId>transport-netty4-client</artifactId>-->
-<!--                <version>${elasticsearch.version}</version>-->
-<!--            </dependency>-->
-<!--            <dependency>-->
-<!--                <groupId>org.elasticsearch.client</groupId>-->
-<!--                <artifactId>elasticsearch-rest-high-level-client</artifactId>-->
-<!--                <version>${elasticsearch.version}</version>-->
-<!--            </dependency>-->
-<!--            <dependency>-->
-<!--                <groupId>org.elasticsearch.client</groupId>-->
-<!--                <artifactId>elasticsearch-rest-client</artifactId>-->
-<!--                <version>${elasticsearch.version}</version>-->
-<!--            </dependency>-->
 
             <!-- 引入fluent-mybatis 运行依赖包, scope为compile -->
             <dependency>
@@ -204,6 +186,13 @@
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-starter</artifactId>
                 <version>${mybatis.version}</version>
+            </dependency>
+
+            <!-- retrofit HTTP请求客户端 -->
+            <dependency>
+                <groupId>com.github.lianjiatech</groupId>
+                <artifactId>retrofit-spring-boot-starter</artifactId>
+                <version>${retrofit.version}</version>
             </dependency>
 
         </dependencies>
