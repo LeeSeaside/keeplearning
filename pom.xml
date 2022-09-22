@@ -40,9 +40,11 @@
         <magicapi.version>1.0.2</magicapi.version>
         <elasticsearch.version>7.6.2</elasticsearch.version>
         <fluent-mybatis.version>1.6.14</fluent-mybatis.version>
-        <mybatis.version>2.2.0</mybatis.version>
+        <mybatis.version>2.2.2</mybatis.version>
+        <mybatis-plus.version>3.4.2</mybatis-plus.version>
         <junit.version>5.7.2</junit.version>
         <retrofit.version>2.2.16</retrofit.version>
+        <ucode.version>1.5.6.1</ucode.version>
     </properties>
 
     <!-- 项目中依赖版本统一管理. -->
@@ -188,6 +190,13 @@
                 <version>${mybatis.version}</version>
             </dependency>
 
+            <!-- mybatis-plus -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
             <!-- retrofit HTTP请求客户端 -->
             <dependency>
                 <groupId>com.github.lianjiatech</groupId>
@@ -195,7 +204,13 @@
                 <version>${retrofit.version}</version>
             </dependency>
 
+            <!--代码本地化生成依赖-->
+            <dependency>
+                <groupId>xin.altitude.cms</groupId>
+                <artifactId>ucode-cms-code-spring-boot-starter</artifactId>
+                <version>${ucode.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
-
 </project>
