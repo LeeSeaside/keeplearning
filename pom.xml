@@ -4,96 +4,68 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>top.leeseaside</groupId>
 	<artifactId>keeplearning</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>${revision}</version>
 	<packaging>pom</packaging>
 	<name>${project.artifactId}</name>
 	<description>项目基础脚手架，保持热爱，持续学习。</description>
 	<url>https://github.com/LeeSeaside/keeplearning</url>
 
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.0.2</version>
-		<relativePath/>
-		<!-- lookup parent from repository -->
-	</parent>
+<!--	<parent>-->
+<!--		<groupId>org.springframework.boot</groupId>-->
+<!--		<artifactId>spring-boot-starter-parent</artifactId>-->
+<!--		<version>3.1.1</version>-->
+<!--		<relativePath/>-->
+<!--		&lt;!&ndash; lookup parent from repository &ndash;&gt;-->
+<!--	</parent>-->
 
 	<modules>
 		<module>keeplearning-admin</module>
+		<module>keeplearning-dependencies</module>
+		<module>keeplearning-module</module>
+		<module>keeplearning-module-api</module>
+		<module>keeplearning-common</module>
 	</modules>
 
 	<properties>
+		<revision>0.0.1-SNAPSHOT</revision>
 		<java.version>17</java.version>
-		<spring-boot.version>3.0.2</spring-boot.version>
-		<mysql.version>8.0.17</mysql.version>
-		<mybatis-spring-boot-starter.version>3.0.1</mybatis-spring-boot-starter.version>
-		<mybatis-plus-boot-starter.version>3.5.3.1</mybatis-plus-boot-starter.version>
+		<spring-boot.version>3.1.1</spring-boot.version>
 	</properties>
 
 	<dependencyManagement>
 		<dependencies>
-			<!-- springboot 基础包 -->
 			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-starter</artifactId>
-				<version>${spring-boot.version}</version>
+				<groupId>top.leeseaside</groupId>
+				<artifactId>keeplearning-dependencies</artifactId>
+				<version>${revision}</version>
+				<type>pom</type>
+				<scope>import</scope>
 			</dependency>
-			<!-- springboot 测试包 -->
-			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-starter-test</artifactId>
-				<scope>test</scope>
-				<version>${spring-boot.version}</version>
-			</dependency>
-			<!-- springboot web包 -->
-			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-starter-web</artifactId>
-				<version>${spring-boot.version}</version>
-			</dependency>
-
-			<!-- druid -->
-			<dependency>
-				<groupId>com.alibaba</groupId>
-				<artifactId>druid-spring-boot-starter</artifactId>
-				<version>1.2.16</version>
-			</dependency>
-			<!-- 多数据源 -->
-			<dependency>
-				<groupId>com.baomidou</groupId>
-				<artifactId>dynamic-datasource-spring-boot-starter</artifactId>
-				<version>3.6.1</version>
-			</dependency>
-			<!-- mysql 数据库 -->
-			<dependency>
-				<groupId>mysql</groupId>
-				<artifactId>mysql-connector-java</artifactId>
-				<version>${mysql.version}</version>
-			</dependency>
-
-			<!-- mybatis -->
-			<dependency>
-				<groupId>org.mybatis.spring.boot</groupId>
-				<artifactId>mybatis-spring-boot-starter</artifactId>
-				<version>${mybatis-spring-boot-starter.version}</version>
-			</dependency>
-			<!-- mybatis-plus -->
-			<dependency>
-				<groupId>com.baomidou</groupId>
-				<artifactId>mybatis-plus-boot-starter</artifactId>
-				<version>${mybatis-plus-boot-starter.version}</version>
-			</dependency>
-
 		</dependencies>
 	</dependencyManagement>
 
 	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+					<version>${spring-boot.version}</version>
+					<configuration>
+						<!--					<fork>true</fork> &lt;!&ndash; 如果没有该配置，devtools不会生效 &ndash;&gt;-->
+						<includeSystemScope>true</includeSystemScope> <!-- maven第三方jar打包 -->
+					</configuration>
+					<executions>
+						<execution>
+							<goals>
+								<goal>repackage</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		<finalName>keeplearning</finalName>
 	</build>
 
 	<!-- 使用 aliyun 的 Maven 源，提升下载速度 -->
@@ -102,6 +74,12 @@
 			<id>aliyunmaven</id>
 			<name>aliyun</name>
 			<url>https://maven.aliyun.com/repository/public</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
 		</repository>
 	</repositories>
 
