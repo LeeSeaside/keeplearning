@@ -20,6 +20,8 @@
 
     <properties>
         <java.version>17</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
         <spring-boot.version>3.0.2</spring-boot.version>
         <mysql.version>8.0.17</mysql.version>
         <mybatis-spring-boot-starter.version>3.0.1</mybatis-spring-boot-starter.version>
@@ -28,31 +30,39 @@
 
     <dependencyManagement>
         <dependencies>
-            <!-- springboot 基础包 -->
+            <!-- 统一依赖管理 -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter</artifactId>
+                <artifactId>spring-boot-dependencies</artifactId>
                 <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
-            <!-- springboot 测试包 -->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-test</artifactId>
-                <scope>test</scope>
-                <version>${spring-boot.version}</version>
-            </dependency>
-            <!-- springboot web包 -->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-web</artifactId>
-                <version>${spring-boot.version}</version>
-            </dependency>
-            <!-- springboot jdbc -->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-jdbc</artifactId>
-                <version>${spring-boot.version}</version>
-            </dependency>
+<!--            &lt;!&ndash; springboot 基础包 &ndash;&gt;-->
+<!--            <dependency>-->
+<!--                <groupId>org.springframework.boot</groupId>-->
+<!--                <artifactId>spring-boot-starter</artifactId>-->
+<!--                <version>${spring-boot.version}</version>-->
+<!--            </dependency>-->
+<!--            &lt;!&ndash; springboot 测试包 &ndash;&gt;-->
+<!--            <dependency>-->
+<!--                <groupId>org.springframework.boot</groupId>-->
+<!--                <artifactId>spring-boot-starter-test</artifactId>-->
+<!--                <scope>test</scope>-->
+<!--                <version>${spring-boot.version}</version>-->
+<!--            </dependency>-->
+<!--            &lt;!&ndash; springboot web包 &ndash;&gt;-->
+<!--            <dependency>-->
+<!--                <groupId>org.springframework.boot</groupId>-->
+<!--                <artifactId>spring-boot-starter-web</artifactId>-->
+<!--                <version>${spring-boot.version}</version>-->
+<!--            </dependency>-->
+<!--            &lt;!&ndash; springboot jdbc &ndash;&gt;-->
+<!--            <dependency>-->
+<!--                <groupId>org.springframework.boot</groupId>-->
+<!--                <artifactId>spring-boot-starter-jdbc</artifactId>-->
+<!--                <version>${spring-boot.version}</version>-->
+<!--            </dependency>-->
 
             <!-- 多数据源 -->
             <!--			<dependency>-->
@@ -61,11 +71,11 @@
             <!--				<version>3.6.1</version>-->
             <!--			</dependency>-->
             <!-- mysql 数据库 -->
-            <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <version>${mysql.version}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>mysql</groupId>-->
+<!--                <artifactId>mysql-connector-java</artifactId>-->
+<!--                <version>${mysql.version}</version>-->
+<!--            </dependency>-->
 
             <!-- mybatis -->
             <dependency>
