@@ -10,20 +10,13 @@
 	<description>项目基础脚手架，保持热爱，持续学习。</description>
 	<url>https://github.com/LeeSeaside/keeplearning</url>
 
-<!--	<parent>-->
-<!--		<groupId>org.springframework.boot</groupId>-->
-<!--		<artifactId>spring-boot-starter-parent</artifactId>-->
-<!--		<version>3.1.1</version>-->
-<!--		<relativePath/>-->
-<!--		&lt;!&ndash; lookup parent from repository &ndash;&gt;-->
-<!--	</parent>-->
-
 	<modules>
 		<module>keeplearning-admin</module>
 		<module>keeplearning-dependencies</module>
 		<module>keeplearning-module</module>
 		<module>keeplearning-module-api</module>
 		<module>keeplearning-common</module>
+		<module>keeplearning-module/keeplearning-module-demo</module>
 	</modules>
 
 	<properties>
