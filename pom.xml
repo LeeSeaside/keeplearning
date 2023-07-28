@@ -6,7 +6,6 @@
 	<artifactId>keeplearning</artifactId>
 	<version>${revision}</version>
 	<packaging>pom</packaging>
-	<name>${project.artifactId}</name>
 	<description>项目基础脚手架，保持热爱，持续学习。</description>
 	<url>https://github.com/LeeSeaside/keeplearning</url>
 
@@ -16,7 +15,6 @@
 		<module>keeplearning-module</module>
 		<module>keeplearning-module-api</module>
 		<module>keeplearning-common</module>
-		<module>keeplearning-module/keeplearning-module-demo</module>
 	</modules>
 
 	<properties>
