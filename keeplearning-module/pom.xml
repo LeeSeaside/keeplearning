@@ -6,7 +6,6 @@
         <groupId>top.leeseaside</groupId>
         <artifactId>keeplearning</artifactId>
         <version>${revision}</version>
-<!--        <relativePath>../pom.xml</relativePath>-->
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
@@ -15,10 +14,8 @@
     <description>各类模块</description>
 
     <properties>
-        <java.version>17</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <modules>
